@@ -6,3 +6,4 @@ export * from './Htag/Htag.props';
 export * from './Htag/Htag';
 export * from './Ptag/Ptag.props';
 export * from './Ptag/Ptag';
+export * from './Rating/Rating';

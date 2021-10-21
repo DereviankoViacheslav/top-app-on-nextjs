@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Button,
   Htag,
   Ptag,
   Tag,
+  Rating,
   EnumTag,
   EnumAppearance,
   EnumArrow,
@@ -11,10 +12,13 @@ import {
   EnumTagSize,
   EnumColor
 } from '../components';
+import { withLayout } from '../layout/Layout';
 
-export default function Home(): JSX.Element {
+const Home = (): JSX.Element => {
+  const [rating, setRating] = useState<number>(0);
+
   return (
-    <div>
+    <>
       <Htag tag={EnumTag.h1}>text</Htag>
       <Htag tag={EnumTag.h2}>text</Htag>
       <Htag tag={EnumTag.h3}>text</Htag>
@@ -58,7 +62,14 @@ export default function Home(): JSX.Element {
       <Tag color={EnumColor.green}>text</Tag>
       <Tag color={EnumColor.primary}>text</Tag>
       <hr />
-      <Tag color={EnumColor.primary} href='/'>text</Tag>
-    </div>
+      <Tag color={EnumColor.primary} href='/'>
+        text
+      </Tag>
+      <hr />
+      <Rating rating={4} />
+      <Rating rating={rating} isEditable setRating={setRating} />
+    </>
   );
-}
+};
+
+export default withLayout(Home);
